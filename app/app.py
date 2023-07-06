@@ -12,7 +12,7 @@ IMG_SIZE = (256, 256)
 
 # Load the Keras model
 with tf.keras.utils.custom_object_scope({'ConvBlock': ConvBlock, 'UpConvBlock': UpConvBlock}):
-    model = tf.keras.models.load_model('../outputs/polyp_model.h5')
+    model = tf.keras.models.load_model('./models/polyp_model.h5')
 
 @st.cache_data
 def predict(image):
@@ -29,7 +29,7 @@ def predict(image):
     return prediction
 
 def preprocess(image):
-    img = image.resize(IMG_SIZE)
+    img = image.convert('RGB').resize(IMG_SIZE)
     return img
 
 # Main Streamlit app
@@ -49,9 +49,11 @@ def main():
         input_image = preprocess(input_image)
         # threshold = st.slider("Threshold", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
         prediction_image = None
-        # Perform prediction when a button is clicked
-        if st.button("Process"):
+        
+        # Perform prediction when the button is clicked
+        if st.button("Predict"):
             prediction_image = predict(input_image)
+            
         # Display input and output images side by side
         col1, col2 = st.columns(2, gap="medium")
         col1.header("Input Image (Resized)")
