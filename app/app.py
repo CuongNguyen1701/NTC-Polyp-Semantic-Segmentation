@@ -3,16 +3,22 @@ from PIL import Image
 import numpy as np
 import tensorflow as tf
 from custom_layers import ConvBlock, UpConvBlock
+import subprocess
 import os
 # Register the custom objects
 tf.keras.utils.get_custom_objects()['ConvBlock'] = ConvBlock
 tf.keras.utils.get_custom_objects()['UpConvBlock'] = UpConvBlock
 
 IMG_SIZE = (256, 256)
+model_path = os.path.join(os.getcwd(), 'models/polyp_model.h5')
+
+if not os.path.exists(model_path):
+    #Download model from google drive
+    subprocess.run(["gdown", "1EDyOfeEhwlYCy5YUHObj-Sfo1N8EbVxK", "-O", model_path]) 
 
 # Load the Keras model
 with tf.keras.utils.custom_object_scope({'ConvBlock': ConvBlock, 'UpConvBlock': UpConvBlock}):
-    model = tf.keras.models.load_model('./polyp_model.h5')
+    model = tf.keras.models.load_model(model_path)
 
 @st.cache_data
 def predict(image):
