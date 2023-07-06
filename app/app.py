@@ -13,6 +13,8 @@ IMG_SIZE = (256, 256)
 model_path = os.path.join(os.getcwd(), 'models/polyp_model.h5')
 
 if not os.path.exists(model_path):
+    if not os.path.exists('models'):
+        os.mkdir('models')
     #Download model from google drive
     subprocess.run(["gdown", "1EDyOfeEhwlYCy5YUHObj-Sfo1N8EbVxK", "-O", model_path]) 
 
