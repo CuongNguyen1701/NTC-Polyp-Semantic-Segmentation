@@ -12,7 +12,7 @@ IMG_SIZE = (256, 256)
 
 # Load the Keras model
 with tf.keras.utils.custom_object_scope({'ConvBlock': ConvBlock, 'UpConvBlock': UpConvBlock}):
-    model = tf.keras.models.load_model(os.join(os.getcwd() , 'models/polyp_model.h5'))
+    model = tf.keras.models.load_model(os.path.join(os.getcwd() , 'models/polyp_model.h5'))
 
 @st.cache_data
 def predict(image):
