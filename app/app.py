@@ -3,7 +3,6 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-import subprocess
 import os
 
 #Custom Modules
@@ -11,6 +10,7 @@ from custom_layers import ConvBlock, UpConvBlock
 from components.navbar import render_navbar
 from components.technical_overview import render_technical_overview
 from components.about import render_about
+from utils.init import init
 
 # Register the custom objects
 tf.keras.utils.get_custom_objects()['ConvBlock'] = ConvBlock
@@ -19,12 +19,8 @@ tf.keras.utils.get_custom_objects()['UpConvBlock'] = UpConvBlock
 IMG_SIZE = (256, 256)
 model_path = os.path.join(os.getcwd(), 'models/polyp_model.h5')
 
-
-#In case the model is not existed(i. e. when deploying to the cloud), download it from google drive
-if not os.path.exists(model_path):
-    if not os.path.exists('models'):
-        os.mkdir('models')
-    subprocess.run(["gdown", "1EDyOfeEhwlYCy5YUHObj-Sfo1N8EbVxK", "-O", model_path]) 
+#init some data for cloud deployment(models, images, ...)
+init(os.getcwd())
 
 # Load the Keras model
 with tf.keras.utils.custom_object_scope({'ConvBlock': ConvBlock, 'UpConvBlock': UpConvBlock}):
