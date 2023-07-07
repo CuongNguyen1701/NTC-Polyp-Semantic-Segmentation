@@ -47,13 +47,14 @@ def preprocess(image):
 # Main Streamlit app
 def main():
     selection_list = ["Image Semantic Segmentation", "Technical Overview", "About Me"]
-    nav_selection = render_navbar(selection_list)
+    icon_list = ["🔍", "📝", "👨‍💼"]
+    nav_selection = render_navbar(selection_list, icon_list)
     if nav_selection == selection_list[0]:
         st.subheader("Polyp Segmentation") 
         st.write("Made by Nguyen Truc Cuong - HUST")
         gh_link = "[Visit my GitHub](https://github.com/CuongNguyen1701)"
         li_link = "[Visit my LinkedIn profile](https://www.linkedin.com/in/cuong-nguyen-209570237/)"
-        links = ":computer: " + gh_link + " --- :male-office-worker: " + li_link
+        links = ":computer: " + gh_link + " ----- :male-office-worker: " + li_link
         st.markdown(links, unsafe_allow_html=True)
         
         # Upload and display the input image
