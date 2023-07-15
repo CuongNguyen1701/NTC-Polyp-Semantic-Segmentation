@@ -1,6 +1,7 @@
 
 import subprocess
 import os
+import zipfile
 def init(dir):
     #initiate AI model
     model_folder = os.path.join(dir, 'models')
@@ -18,4 +19,10 @@ def init(dir):
         os.mkdir(assets_folder)
     if not os.path.exists(avatar_path):
         subprocess.run(["gdown", "1aZ9r06lZbEa0gEngPhvXXwc6LBZ37BAz", "-O", avatar_path])
+        
+    #initiate resources for technical overview
+    images_folder = os.path.join(dir, 'images')
+    zip_path = os.path.join(images_folder, 'images.zip')
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(images_folder)
     
