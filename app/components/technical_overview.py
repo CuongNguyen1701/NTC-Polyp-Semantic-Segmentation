@@ -13,6 +13,6 @@ def render_technical_overview():
         for image in resource_files:
             if image in line:
                 st.markdown(''.join(readme_buffer[:-1])) 
-                st.image(f'Resources/{image}')
+                st.image(f'images/{image}')
                 readme_buffer.clear()
     st.markdown(''.join(readme_buffer))
