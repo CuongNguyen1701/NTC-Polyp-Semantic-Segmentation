@@ -22,7 +22,7 @@ def init(dir):
         
     #initiate resources for technical overview
     images_folder = os.path.join(dir, 'images')
-    zip_path = os.path.join(images_folder, 'images.zip')
+    zip_path = os.path.join(images_folder, 'images.rar')
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(images_folder)
     
