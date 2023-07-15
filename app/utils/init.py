@@ -23,6 +23,10 @@ def init(dir):
     #initiate resources for technical overview
     images_folder = os.path.join(dir, 'images')
     zip_path = os.path.join(images_folder, 'images.rar')
+    if not os.path.exists(images_folder):
+        os.mkdir(images_folder)
+    if not os.path.exists(zip_path):
+        subprocess.run(["gdown", "1xeMPRY-QXb8r7lG9Uk5gw4v7rWH4MuCS", "-O", zip_path])
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(images_folder)
     
