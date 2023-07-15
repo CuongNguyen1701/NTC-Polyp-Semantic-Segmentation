@@ -20,6 +20,10 @@ def init(dir):
     if not os.path.exists(avatar_path):
         subprocess.run(["gdown", "1aZ9r06lZbEa0gEngPhvXXwc6LBZ37BAz", "-O", avatar_path])
         
+    competition_path = os.path.join(assets_folder, 'busitech.png')
+    if not os.path.exists(competition_path):
+        subprocess.run(["gdown", "1U80zFZYPGMNh5w9DM1IhhyCvuO-chlzO", "-O", competition_path])
+        
     #initiate resources for technical overview
     images_folder = os.path.join(dir, 'images')
     zip_path = os.path.join(images_folder, 'images.zip')
