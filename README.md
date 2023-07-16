@@ -10,6 +10,14 @@ You can read more about polyps here : [Understanding Polyps and Their Treatment]
 In this application, the user can upload an image and the AI model will predict the region that may have polyps and show the prediction and the original image side-by-side (image below).
 ![demo](images/demo.png)
 
+Or you can clone this repo and run the following command from its root directory:
+
+```console
+cd app
+pip install requirements.txt
+streamlit run app.py
+```
+
 ## Technical Overview
 
 ### Dataset
@@ -66,4 +74,4 @@ Regarding the metrics, here are the results:
 
 ### Conclusion
 
-Despite its age, U-net architecture has proven itself to be still effective in medical segmentation problems. 
+Despite its age, U-net architecture has proven itself to be still effective in medical segmentation problems.
