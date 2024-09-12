@@ -1,6 +1,6 @@
 # NTC-Polyp-Semantic-Segmentation
 
-You can try out the live demo here : [NTC Polyp Semantic Segmentation App](https://ntc-polyp-semantic-segmentation.streamlit.app/)
+~~You can try out the live demo here : [NTC Polyp Semantic Segmentation App](https://ntc-polyp-semantic-segmentation.streamlit.app/)~~
 
 ## Introduction
 
